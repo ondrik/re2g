@@ -573,7 +573,7 @@ int main(int argc, const char **argv) {
     opts.set_posix_syntax(true);
   }
 
-  std::deque<RE2::RE2*> pats;
+  std::deque<re2::RE2*> pats;
 
   while (!pat_files.empty()) {
     std::ifstream patf(pat_files.front().c_str());
@@ -595,7 +595,7 @@ int main(int argc, const char **argv) {
   }
 
   while (!pat_strs.empty()) {
-    pats.push_back(new RE2::RE2(pat_strs.front(), opts));
+    pats.push_back(new re2::RE2(pat_strs.front(), opts));
     pat_strs.pop_front();
   }
 
@@ -657,7 +657,7 @@ int main(int argc, const char **argv) {
   const char **uargv = NULL;
   std::size_t uargc = uargs.size();
   std::size_t rargc = 0;
-  RE2::RE2 uarg_pat("\\{\\}");
+  re2::RE2 uarg_pat("\\{\\}");
   if (!uargs.empty()) {
     uargv = new const char*[uargc + 1];
     uargv[uargc] = NULL;
@@ -765,7 +765,7 @@ int main(int argc, const char **argv) {
           std::string obuf;
           std::size_t num_pats_matched = 0;
           obuf.clear();
-          for (std::deque<RE2::RE2*>::iterator pat = pats.begin();
+          for (std::deque<re2::RE2*>::iterator pat = pats.begin();
               pat != pats.end();
               ++pat) {
             bool this_pat_matched = false;

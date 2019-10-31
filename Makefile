@@ -8,7 +8,7 @@ PREFIX?=/usr/local
 BINDIR?=$(PREFIX)/bin
 INSTALL?=install
 CXX?=g++
-CXXFLAGS?=-I$(src) -I$(build) -L$(build) -Wall $(RE2_INC) $(RE2_LIB)
+CXXFLAGS?=-std=c++11 -I$(src) -I$(build) -L$(build) -Wall $(RE2_INC) $(RE2_LIB)
 LDFLAGS?=-lre2 -pthread
 
 xargp=$(shell echo J|xargs -J% echo % 2>/dev/null|| echo I)
